@@ -1,4 +1,4 @@
-name: Using Actions
+name: 11 Custom Actions - Composite
 
 on: 
   workflow_dispatch:
@@ -15,8 +15,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Build Node
+        uses: ./.github/actions/composite-deps
         with:
           node-version: ${{env.NODE_VERSION}}
       - name: Install Dependencies
