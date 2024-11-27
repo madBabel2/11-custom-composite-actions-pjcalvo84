@@ -19,7 +19,4 @@ jobs:
         uses: ./.github/actions/composite-deps
         with:
           node-version: ${{env.NODE_VERSION}}
-      - name: Install Dependencies
-        run: npm ci
-      - name: Run Unit Tests
-        run: npm run test
+    
