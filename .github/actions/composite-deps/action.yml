@@ -1,0 +1,24 @@
+name: composite-action
+description: 'A composite action to install dependencies'
+inputs:
+  work-dir:
+    description: 'Working directory'
+    required: true
+  node-version:
+    description: 'Node.js version'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+    - name: Install Dependencies
+      run: npm ci
+      shell: bash
+      working-directory: ${{ inputs.work-dir }}
+    - name: Run Unit Tests
+      run: npm run test
+      shell: bash
+      working-directory: ${{ inputs.work-dir }}
