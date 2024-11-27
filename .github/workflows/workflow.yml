@@ -19,4 +19,5 @@ jobs:
         uses: ./.github/actions/composite-deps
         with:
           node-version: ${{env.NODE_VERSION}}
+          work-dir: ${{ env.WORK_DIR }}
     
